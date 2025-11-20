@@ -1,0 +1,60 @@
+# Configuration for explainable recommendation system
+
+# Data settings
+data:
+  n_users: 1000
+  n_items: 500
+  n_interactions: 10000
+  seed: 42
+  test_size: 0.2
+
+# Model settings
+models:
+  popularity:
+    enabled: true
+    
+  item_cf:
+    enabled: true
+    min_similarity: 0.1
+    
+  matrix_factorization:
+    enabled: true
+    n_factors: 50
+    random_state: 42
+    
+  content_based:
+    enabled: true
+
+# Evaluation settings
+evaluation:
+  k_values: [5, 10, 20]
+  n_recommendations: 10
+  rating_threshold: 3.0
+
+# Explanation settings
+explanations:
+  similarity:
+    enabled: true
+    top_similar_items: 3
+    
+  feature_based:
+    enabled: true
+    
+  popularity:
+    enabled: true
+    
+  trending:
+    enabled: false
+
+# Visualization settings
+visualization:
+  enabled: true
+  output_dir: "assets"
+  dpi: 300
+  style: "default"
+
+# Demo settings
+demo:
+  n_examples: 3
+  default_models: ["popularity", "item_cf"]
+  max_recommendations: 20
